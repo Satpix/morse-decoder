@@ -91,7 +91,7 @@ function decodeMorse(morseCode) {
 let stroke="";
 let arr=expr;
 for (let i=0;i<arr.length;i=i+2){
-    if (i=10){
+    if ((i%10)==0){
         stroke+=" ";
     }
     if ((parseInt(arr[i].toString()+arr[i+1].toString()))==11){
@@ -100,11 +100,8 @@ for (let i=0;i<arr.length;i=i+2){
         stroke+='.';
     }
 }
-
-
-return stroke;
+return decodeMorse(stroke);
 }
-
 
 module.exports = {
     decode
